@@ -1,1 +1,43 @@
-<h1>Edit page</h1>
+<h1>Create new Post</h1>
+
+<%= form_for @post do |f| %>
+	
+	<p>
+		<%= f.label :title %> <br />
+		<%= f.text_field :title %> <br/>
+	</p>
+	<p>
+		<%= f.label :Price %> <br />
+		<%= f.text_field :price %> <br/>
+	</p>
+
+	<p>
+		<%= f.label :body %> <br />
+		<%= f.text_area :body %> <br/>
+	</p>
+
+	<p>
+		<%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => "Select One"}	%> <br />
+	</p>
+
+	<span class="picture">
+
+    	<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+
+  	</span>
+
+	<p>
+		<%= f.submit "Update Post" %>
+	</p>
+
+<% end %>	
+
+<%= link_to "Go Back", post_path %>
+<script type="text/javascript">
+  $('#post_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>

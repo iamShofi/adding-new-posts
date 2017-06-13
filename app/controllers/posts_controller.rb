@@ -20,9 +20,19 @@ class PostsController < ApplicationController
 
 	def edit
 		
+		@post =Post.find(params[:id])
+
 	end
 
 	def update
+
+		@post =Post.find(params[:id])	
+		if @post.update_attributes(post_params)
+			redirect_to post_path, :notice => "Post Updated"
+
+			else
+				render "edit"
+			end	
 	end
 
 	def show
@@ -33,10 +43,14 @@ class PostsController < ApplicationController
 
 	def destroy
 
+		@post =Post.find(params[:id])
+		@post.destroy
+		redirect_to posts_path, :notice => "Post deleted"
+
 	end	
 	
 	def post_params
-		params.require(:post).permit(:title, :price, :body, :category_id)
+		params.require(:post).permit(:title, :price, :body, :category_id, :picture)
 	end
 
 end
