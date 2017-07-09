@@ -1,10 +1,11 @@
 <%= image_tag @post.picture.url if @post.picture? %> <br>
 
-<%= link_to "Edit Post", edit_post_path %>
-<%= link_to "Delete", @post, :data => {:confirm => 'Are you sure?'}, :method => :delete %> 
 
 <h1>	<%= @post.title %>	</h1>
 <p>		<%= @post.price %>	</p>
 <p>		<%= @post.body %></p>
+<h6>Category: <%= link_to @post.category.name,category_path(:id => @post.category.id) %> </h6> <br>
+
 
 <%= link_to "All post", posts_path %>
+

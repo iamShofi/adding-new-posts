@@ -1,2 +1,204 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pedal House | Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  	<meta name="keywords" content="Pedal House, Cycles, Sylhet city" />
+  	<link href='http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400' rel='stylesheet' type='text/css'>
+  <!--webfont-->
+  
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+	</script>
+</head>
+<body>
+
+	<!--banner-->
+<script>  
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script>
+<div class="banner-bg banner-bg1">	
+	  <div class="container">
+			 <div class="header">
+			       <div class="logo">
+						 <a href="index.html"><img src="assets/logo.png" alt=""/></a>
+				   </div>							 
+				  <div class="top-nav">										 
+						<label class="mobile_menu" for="mobile_menu">
+						<span>Menu</span>
+						</label>
+						<input id="mobile_menu" type="checkbox">
+					   <ul class="nav">
+                           
+						  <li class="dropdown1"><a>BIKES</a>
+							  <ul class="dropdown2">
+									<li><a href="bicycles.html">NEW BIKES</a></li>
+									<li><a href="vpgco.html">VELOCE</a></li>
+									<li><a href="tgbm.html">TREK</a></li>
+                                    <li><a href="vpgco.html">PHOENIX</a></li>
+									<li><a href="tgbm.html">GIANT</a></li>
+                                    <li><a href="vpgco.html">GHOST</a></li>
+                                    <li><a href="tgbm.html">BINACHI</a></li>
+									<li><a href="vpgco.html">CORE</a></li>
+                                    <li><a href="tgbm.html">MUSTANG</a></li>
+									<li><a href="vpgco.html">OTHERS</a></li>
+							  </ul>
+						  </li>
+                          <li class="dropdown1"><%= link_to "Kids ITEM", kidsbikes_path %>
+							 
+				          </li>
+						  <li class="dropdown1"><%= link_to "PARTS", parts_path %>
+							 
+						 </li>      
+						 <li class="dropdown1"><%= link_to "ACCESSORIES", accessories_path %>
+							 
+						 </li>               
+						 <li class="dropdown1"><%= link_to "ABOUT", aboutus_path %>
+							 
+						 </li>
+						  
+					  </ul>
+                      
+                      
+				 </div>
+				 <div class="clearfix"></div>
+                 
+			 </div>
+	  </div>	 
+	 <div class="caption">
+		 <div class="slider">
+					   <div class="callbacks_container">
+						   <ul class="rslides" id="slider">
+							    <li><h1>PEDAL HOUSE</h1></li>
+									
+						  </ul>
+						  <p>Burn <span>Fat,</span> Not <span>Fuel</span> </p>
+						  <a class="morebtn" href="bicycles.html">EXPLORE BIKES</a>
+					  </div>
+				  </div>
+	 </div>
+	 			 
+</div>
+<!--/banner-->
+<div id="cate" class="categories">
+	 <div class="container">
+		 <h3>OUR PRODUCTS</h3>
+		 <div class="categorie-grids">
+			 <a href="kids%20item.html"><div class="col-md-4 cate-grid grid1">
+				 <h4>KIDS ITEM</h4>
+				 <p>The Best Kids Riding Products In Sylhet</p>
+				 <a><%= link_to "VISIT KIDS ITEM", kidsbikes_path, { :class=>"store" } %></a>
+			 </div></a>
+			 <a href="bicycles.html"><div class="col-md-4 cate-grid grid2">
+				 <h4>PARTS</h4>
+				 <p>Exclusive Bike Parts</p>
+				 <a><%= link_to "VISIT PARTS", parts_path, { :class=>"store" } %>
+			 </div></a>
+			 <a href="bicycles.html"><div class="col-md-4 cate-grid grid3">
+				 <h4>ACCESSORIES</h4>
+				 <p>Exclusive Bike Accessories</p>
+				 <a><%= link_to "VISIT ACCESSORIES", accessories_path, { :class=>"store" } %>
+			 </div></a>
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+</div>
+<!--bikes-->
+
+<div class="bikes">	
+		 <h3>LATEST BIKES</h3>
+		 <div class="bikes-grids">			 
+			 <ul id="flexiselDemo1">
+				 <li>
+				 		<% @posts.each do |post| %>
+				 			<%= image_tag post.picture.url if post.picture? %>
+										 			
+					 
+					 <div class="viw">
+						<a href="bicycles.html">Quick View</a>
+					 </div>
+				 </li>
+				 <li>
+				 <%= image_tag post.picture.url if post.picture? %> 
+				 
+				 
+					 <div class="viw">
+						<a href="bicycles.html">Quick View</a>
+					 </div>
+				 </li>
+				
+				 <li>
+				 		<%= image_tag post.picture.url if post.picture? %> 
+				      
+					  
+					 <div class="viw">
+						<a href="bicycles.html">Quick View</a>
+					 </div>
+				 </li>
+				 <% end %>
+		    </ul>
+			<script type="text/javascript">
+			 $(window).load(function() {			
+			  $("#flexiselDemo1").flexisel({
+				visibleItems: 3,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,    		
+				pauseOnHover:true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: { 
+					portrait: { 
+						changePoint:480,
+						visibleItems: 1
+					}, 
+					landscape: { 
+						changePoint:640,
+						visibleItems: 2
+					},
+					tablet: { 
+						changePoint:768,
+						visibleItems: 3
+					}
+				}
+			});
+			});
+			</script>
+						 
+	</div>
+</div>
+<!---->
+<div class="contact">
+	<div class="container">
+		<h3>CONTACT US</h3>
+		<p>Please contact us for all inquiries and purchase options.</p>
+		<form>
+			 <input type="text" placeholder="NAME" required="">
+			 <input type="text" placeholder="SURNAME" required="">			 
+			 <input class="user" type="text" placeholder="USER@DOMAIN.COM" required=""><br>
+			 <textarea placeholder="MESSAGE"></textarea>
+			 <input type="submit" value="SEND">
+		</form>
+	</div>
+</div>
+<%= yield %>
+
+</body>
+</html>

@@ -1,13 +1,16 @@
 class CategoriesController < ApplicationController
+  
   def index
-  end
 
-  def edit
-  end
+  	@categories = Category.all
 
-  def new
   end
 
   def show
+
+  	@category = Category.find(params[:id])
+  	@title = @category.name
+  	@posts = @category.posts
+
   end
 end

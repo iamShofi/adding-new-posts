@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scratch</title>
+    <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Pedal House, Cycles, Sylhet city" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+  </script>
+  <!--webfont-->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400' rel='stylesheet' type='text/css'>
+  <!--webfont-->
+  
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,12 +18,87 @@
   </head>
 
   <body>
+    <script>  
+    $(function () {
+      $("#slider").responsiveSlides({
+        auto: false,
+        nav: true,
+        speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script>
+<div class="banner-bg banner-sec">  
+    <div class="container">
+       <div class="header">
+             <div class="logo">
+             <%= link_to root_path do %>
+             <img src="assets/logo.png" alt=""/>
+             <% end -%>
+           </div>              
+          <div class="top-nav">                    
+            <label class="mobile_menu" for="mobile_menu">
+            <span>Menu</span>
+            </label>
+            <input id="mobile_menu" type="checkbox">
+             <ul class="nav">
+              <li class="dropdown1"><a>BIKES</a>
+                <ul class="dropdown2">
+                  <li><a href="bicycles.html">NEW BIKES</a></li>
+                  <li><a href="vpgco.html">VELOCE</a></li>
+                  <li><a href="tgbm.html">TREK</a></li>
+                                    <li><a href="vpgco.html">PHOENIX</a></li>
+                  <li><a href="tgbm.html">GIANT</a></li>
+                                    <li><a href="vpgco.html">GHOST</a></li>
+                                    <li><a href="tgbm.html">BINACHI</a></li>
+                  <li><a href="vpgco.html">CORE</a></li>
+                                    <li><a href="tgbm.html">MUSTANG</a></li>
+                  <li><a href="vpgco.html">OTHERS</a></li>
+                </ul>
+              </li>
+                          <li class="dropdown1"><%= link_to "Kids ITEM", kidsbikes_path %>
+               
+                  </li>
+              <li class="dropdown1"><%= link_to "PARTS", parts_path %>
+               
+             </li>      
+             <li class="dropdown1"><%= link_to "ACCESSORIES", accessories_path %>
+               
+             </li>               
+             <li class="dropdown1"><%= link_to "ABOUT", aboutus_path %>
+               
+             </li>
+              
+            </ul>
+                      
+                      
+         </div>
 
-  	<% flash.each do |key,value| %>
-  		<p>
-  			<%= value %>
-  		</p>
-  	<% end %>
+          <div class="clearfix"></div>
+       </div>
+    </div>         
+</div>
+
     <%= yield %>
+
+    <div class="footer">
+   <div class="container wrap">
+    <div class="logo2">
+       <p class="copyright">2017 | Developed By <a href="https://www.facebook.com/shofi9x">Hussain</a> & <a href="https://www.facebook.com/ahmed.z.mahin">Zaman</a></p>
+    </div>
+    <div class="ftr-menu">
+       <ul>
+         <li><a href="bicycles.html">BIKES</a></li>
+                 <li><a href="kids%20item.html">KIDS ITEM</a></li>
+         <li><a href="parts.html">PARTS</a></li>
+         <li><a href="accessories.html">ACCESSORIES</a></li>
+         
+       </ul>
+    </div>
+    <div class="clearfix"></div>
+   </div>
+  </div>
+    
   </body>
 </html>
